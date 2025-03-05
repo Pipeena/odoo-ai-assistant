@@ -1,18 +1,3 @@
-# Ignorar el archivo de variables de entorno
-clave.env
-
-# Ignorar archivos de Python compilados
+clave.env.txt
 __pycache__/
 *.pyc
-
-# Ignorar archivos de entorno virtual (si usas uno)
-venv/
-env/
-
-# Ignorar archivos de configuración de IDE
-.vscode/
-.idea/
-
-# Ignorar archivos de sistema
-.DS_Store
-Thumbs.db
