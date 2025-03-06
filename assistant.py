@@ -31,6 +31,13 @@ def ask_chatgpt(question):
     except Exception as e:
         return f"Error al consultar ChatGPT: {str(e)}"
 
+@app.route("/")
+def home():
+    """
+    Ruta raíz para verificar que el servidor está funcionando.
+    """
+    return "¡Bienvenido al asistente virtual de Odoo! Visita /chat para interactuar."
+
 @app.route("/chat", methods=["POST"])
 def chat():
     """
@@ -48,8 +55,7 @@ def chat():
     return jsonify({"answer": answer})
 
 if __name__ == "__main__":
-    # Obtener el modo de depuración desde las variables de entorno
-    debug_mode = os.getenv("FLASK_DEBUG", "False").lower() == "true"
-
+    # Obtener el puerto desde las variables de entorno (usar 10000 en Render)
+    port = int(os.getenv("PORT", 5000))
     # Iniciar el servidor Flask
-    app.run(host="0.0.0.0", port=5000, debug=debug_mode)
+    app.run(host="0.0.0.0", port=port, debug=False)
